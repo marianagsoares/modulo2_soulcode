@@ -1,0 +1,48 @@
+section{ 
+    border-radius:5px;
+    background-color: rgb(255, 254, 254);
+    color: rgba(0, 0, 0, 0.813);
+    padding: 10px;
+}
+
+section:hover{
+    transform: scale(1.1);
+}
+
+.itens-card{
+    height: 400px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+p{
+    font-size: 12px;
+}
+
+h2{
+    font-size: 15px;
+}
+
+.card-image{
+    width: 200px;
+    height: 180px;
+    margin-bottom:15px;
+}
+.card-stars{
+    width: 80px;
+}
+
+.price{
+    color: rgb(34, 122, 172);
+    font-size: 20px;
+}
+.btn-color{
+
+    background-color: rgb(34, 122, 172);
+    color: white;
+}
+.btn-color:hover{
+    background-color: green;
+}
