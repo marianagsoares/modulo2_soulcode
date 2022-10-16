@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="10ac23e3-80bf-428c-941e-05a30c7d893c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/aulas/primeiro-projeto/src/app/produto/produto.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/exercicios/src/main/java/11-10/exercicio01.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/exercicios/src/main/java/11-10/exercicio01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
