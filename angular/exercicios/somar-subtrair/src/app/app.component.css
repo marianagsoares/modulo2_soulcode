@@ -1,0 +1,33 @@
+.centralizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+    color: white;
+}
+.button-operacao{
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover{
+    transform: scale(1.1);
+    background-color: orange;
+}
+
+.button-zerar{
+    padding: 10px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
