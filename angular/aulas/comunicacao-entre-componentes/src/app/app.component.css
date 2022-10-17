@@ -1,0 +1,16 @@
+.cards-list{
+    display: flex;
+}
+input[type="file"] {
+    display: none;
+  }
+
+.btn {
+    width: 100px;
+    height: 35px;
+    border: none;
+    background-color: blue;
+    font-size: 13px;
+    color: white;
+    cursor: pointer;
+  }

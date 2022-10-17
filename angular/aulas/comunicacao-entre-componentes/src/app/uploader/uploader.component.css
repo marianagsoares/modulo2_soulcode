@@ -1,0 +1,14 @@
+.btn {
+    width: 100px;
+    height: 35px;
+    border: none;
+    background-color: blue;
+    font-size: 13px;
+    color: white;
+    cursor: pointer;
+  }
+
+  input[type="file"]{
+    display: none;
+  }
+  /*todo input que tiver um atributo type do tipo file e retirar da tela*/

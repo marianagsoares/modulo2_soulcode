@@ -1,0 +1,18 @@
+<div class="cards-list">
+    <app-card banner="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQapS9_gDsrIdLfG0lPBITiZFKGsd1Bh4-mCA&usqp=CAU" username="Joao Pedro"></app-card>
+
+    <app-card banner="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtwiAlb3NZjDbQy3xrMVr_4xZ8NwIDOKUTEqmiFuc-ZmgmKwtPPXNfZKcVmBkIHO87g_A&usqp=CAU" username="Fernando Dias"></app-card>
+
+    <app-card banner="https://kazuk.com.br/blog/wp-content/uploads/2019/12/pc-para-escritorio.jpg" username="Carlos Andrade"></app-card>
+</div>
+
+
+
+<app-uploader (uploadCompleto)="mostrarMsg()" #up></app-uploader>
+
+
+<!--Ao clicar no botao, desejo executar o metodo click-->
+<!--#inputFile é uma variavel de template pode ter qualquer nome-->
+<input type="file" #inputFile class="btnpadrao">
+
+<button class="btn" (click)="inputFile.click()">fazer upload</button>
