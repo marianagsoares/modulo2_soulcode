@@ -1,0 +1,10 @@
+<div class="todo">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">TO-DO-LIST</a>
+    <div class="d-flex">
+      <input class="form-control mr-sm-2" type="text" placeholder="Digite aqui sua tarefa" [(ngModel)]="tarefaInserida"> <!--Ouve as alterações do input e atribui o valor a variável por meio do data binding-->
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="adicionar()">+</button>
+    </div>
+  </nav>
+  <app-to-do [tarefas]="listaTarefas"></app-to-do> <!--seletor app-to-do.ts// do component to-do deve ser chamado-->
+</div>
