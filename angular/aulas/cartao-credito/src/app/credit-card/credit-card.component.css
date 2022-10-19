@@ -1,0 +1,63 @@
+.front-card{
+    background-color: rgb(79, 45, 203);
+    height: 250px;
+    border-radius: 8px;
+    color: white;
+    position: relative;
+}
+img{
+    width: 80px;
+    position: absolute;
+    left: 20px;
+    bottom: 100px;
+}
+.number{
+    position: absolute;
+    left: 20px;
+    bottom: 40px;
+    font-size: 20px;
+}
+
+.due-date{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 20px;
+}
+
+.name{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 20px;
+}
+/*VERSO*/
+.back-card{
+    background-color: rgb(79, 45, 203);
+    height: 250px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.black-line{
+    background-color: rgb(18, 18, 28);
+    height: 40px;
+    width: 100%;
+    position:absolute;
+    top: 50px;
+}
+.cvc{
+    background-color: rgba(0, 0, 0, 0.223);
+    color: white;
+    font-size: 20px;
+    min-height: 40px;
+    width: 200px;
+    padding: 5px;
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    text-align: end;
+    padding-right: 30px;
+}

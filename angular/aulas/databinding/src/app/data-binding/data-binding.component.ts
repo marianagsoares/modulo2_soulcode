@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBindingComponent {
 
-  title = "Angular é muito bom!";
+title = "Angular é muito bom!";
   n1: number =0
   n2: number =0
-  tipoInput: string = "text"
+  tipoInput: string = "password"
   somar(x: number, y: number){
     return x + y
   }

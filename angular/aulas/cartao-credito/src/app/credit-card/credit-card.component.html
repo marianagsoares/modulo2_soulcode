@@ -1,0 +1,18 @@
+<div class="d-flex flex-column gap-4">
+    <!--ANVERSO DO CARTÃO-->
+    <div class="front-card">
+        <img src="assets/bandeira.png" alt="">
+        <div class="number">
+            <p>{{numeroCardEsperaReceber}}</p>
+        </div>
+        <div>
+            <p class="name">{{nomeCardEsperaReceber}}</p>
+            <p class="due-date" *ngIf="mesCardEsperaReceber !='' || anoCardEsperaReceber!=''">{{mesCardEsperaReceber}} / {{anoCardEsperaReceber}}</p>
+        </div>
+    </div>
+    <!--VERSO DO CARTÃO-->
+    <div class="back-card">
+        <div class="black-line"></div>
+        <div class="cvc">{{cvcCardEsperaReceber}}</div>
+    </div>
+</div>

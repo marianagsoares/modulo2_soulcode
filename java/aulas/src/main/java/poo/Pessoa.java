@@ -3,7 +3,7 @@ package poo;
 public class Pessoa {
     //atributos/propriedades de uma pessoa
     //classe Pessoa deve ter o mesmo nome do construtor Pessoa
-    String nome;
+   private String nome;
     String sobrenome;
     int idade;
     double altura;

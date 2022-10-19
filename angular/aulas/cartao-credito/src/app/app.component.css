@@ -1,0 +1,39 @@
+.credit-card{
+    width: 30vw;
+    height: 100vh;
+    padding: 60px;
+    background-color: rgb(201, 201, 224);
+}
+
+.credit-card-info{
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.credit-card-form{
+    padding: 80px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+}
+
+button{
+    cursor: pointer;
+    background-color: rgb(79, 45, 203);
+    color: white;
+    font-size: 20px;
+}
+button:hover{
+    background-color: green;
+    color: white;
+}

@@ -28,7 +28,7 @@ public class EstudoEnums {
                 System.out.println("NIVEL PLENO");
                 break;
             case SENIOR:
-                System.out.println("NIVEL SENIOR");
+                System.out.println(" SEU NIVEL É SENIOR");
             break;
         }
 
