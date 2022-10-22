@@ -51,17 +51,6 @@ public class Circulo {
         this.raio = novoRaio;
     }
 
-
-
-
-
-
-
-
-
-
-
-
     //--------------TESTE NA MAIN--------------------//
 
     public static void main(String[] args){

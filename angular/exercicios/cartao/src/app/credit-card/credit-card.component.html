@@ -1,0 +1,24 @@
+<div class="wrapper">
+    <div class="credit-card-front">
+      <div class="credit-card-logo">
+        <img src="assets/logo.svg" alt="Mastercard Logo">
+      </div>
+      <div class="credit-card-number">
+        <strong>{{dadosCartao.numero}}</strong>
+      </div>
+      <div class="credit-card-data">
+        <p class="name">{{dadosCartao.nome}}
+        </p>
+        <strong class="expiration-date">
+          {{dadosCartao.mes}}/{{dadosCartao.ano}}
+        </strong>
+      </div>
+    </div>
+  
+    <div class="credit-card-back">
+      <div class="line"></div>
+      <div class="cvc">
+        <strong>{{dadosCartao.cvc}}</strong>
+      </div>
+    </div>
+  </div>

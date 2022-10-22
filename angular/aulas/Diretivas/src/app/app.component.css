@@ -1,0 +1,30 @@
+main.wrapper {
+    height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-columns: 450px 1fr;
+  }
+  
+.app-form {
+    border-right: 2px solid #aaaaaa;
+  }
+  
+.produtos {
+    box-sizing: border-box;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .btn{
+    background-color: rgb(60, 22, 157);
+    color: white;
+    border: none;
+}
+
+.btn:hover{
+    background-color: rgb(49, 78, 21);
+}
+  

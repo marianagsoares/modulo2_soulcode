@@ -44,10 +44,10 @@ public class Salario {
     //----------MEUS METODOS CONCATENAR VARIAVEIS--------------
 
     String nomeCompleto(String nome, String sobrenome){
+
         return nome.concat(sobrenome);
+
     }
-
-
 }
 
 
