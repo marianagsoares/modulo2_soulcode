@@ -1,18 +1,41 @@
-<div class="card">
-    <!--VEM DE PRODUTO.CARD.COMPONENT.TS-->
-    <img [src]="prod.imagem" class="card-image-top">
+<div class="card" *ngIf="mostrarProduto == true; else conteudoAlternativo">
+    <img [src]="prod.imagem" alt="" class="card-image-top">
     <div class="card-body">
-        <h5 class="card-title">{{prod.nome}}</h5>
-        <h6 class="card-subtitle text-muted">{{prod.preco}}</h6>
-    
-    <span class="badge mb-1 bg-primary">
-        {{prod.estoque}} unidades disponíveis
-    </span>
-    <p class="card-text text-truncate">
-        {{prod.descricao}}
-    </p>
-    <button class="btn btn-sm btn-danger">
+      <h5 class="card-title">{{ prod.nome }}</h5>
+      <h6 class="card-subtitle text-muted">{{ prod.preco }}</h6>
+      <!-- ngClass -->
+      <!--
+        ngClass te permite adicionar ou remover classes de um elemento a partir de
+        condições lógicas (booleanas)
+       -->
+      <span
+        class="badge mb-1"
+        [ngClass]="{
+          'bg-danger': prod.estoque <= 10,
+          'bg-warning': prod.estoque > 10 && prod.estoque <= 30,
+          'bg-primary': prod.estoque > 30 && prod.estoque < 100,
+          'bg-success': prod.estoque > 100
+        }"
+      >
+        {{ prod.estoque }} unidades restantes
+      </span>
+      <p class="card-text text-truncate">
+        {{ prod.descricao }}
+      </p>
+      <button class="btn btn-sm btn-danger" (click)="esconderProduto()">
         Esconder Produto
-    </button>
-</div>
-</div>
+      </button>
+    </div>
+  </div>
+  <!--FUNCIONA COMO O ELSE DO NOSSO *ngElse-->
+  <!--PARA O QUE TA DENTRO DELE APARECER, É NECESSÁRIO DIZER PRA ELE APARECER-->
+  <!--QUERO QUE ng-template SEJA O ELSE NO MEU ngIf-->
+  <ng-template #conteudoAlternativo>
+    <div class="card-body">
+        <p class="card-text">O produto {{prod.nome}} nao irá aparecer no site</p>
+        <button class="btn btn-danger" (click)="aparecerProduto()">Mostrar Novamente</button>
+        <button (click)="emitirEventoDeletar()">
+            &times;
+        </button>
+    </div>
+  </ng-template>

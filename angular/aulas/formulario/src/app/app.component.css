@@ -1,0 +1,17 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.card-form {
+    width: 400px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+button{
+    margin-top: 50px;
+}

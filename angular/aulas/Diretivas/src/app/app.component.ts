@@ -38,7 +38,11 @@ export class AppComponent {
       descricao: this.descricao,
 
     })
-    console.log(this.listaProdutos)
+  }
+  //indexOf qual a posicao dentro do array
+  deletarProduto(p: produto): void{
+    const index = this.listaProdutos.indexOf(p)
+      this.listaProdutos.splice(index, 1)
   }
 
 }

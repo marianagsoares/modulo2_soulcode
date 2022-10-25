@@ -1,0 +1,14 @@
+<!--
+  Pipes são estruturas do Angular que te permitem  formatar dados para que apareçam para o usuário de uma forma visualmente melhor
+-->
+<p>{{dataDeHoje | date}}</p>
+<p>{{dataDeHoje | date: 'dd/MM/yy'}}</p>
+<!--pipes sao usados apenas nos arquivos HTML dos seus componentes-->
+<!--formatam informacoes para que visualmente mais agradável ao usuário-->
+<p>{{56 | currency: 'US'}}</p>
+<p>hora atual {{ dataDeHoje | date: 'HH:mm:ss'}}</p>
+<p>{{[6, 5, "oi", true, 321] | comprimento}}</p>
+
+<p>
+  {{"88125544699" | cpf}}
+</p>

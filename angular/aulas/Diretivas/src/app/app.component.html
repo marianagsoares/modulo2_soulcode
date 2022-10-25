@@ -35,7 +35,8 @@
 
 
       <!--NO LUGAR DO p CRIEI UM ARRAY CHAMADO listaProdutos-->
-      <app-produto-card *ngFor="let percorraArray of listaProdutos" [prod]="percorraArray"></app-produto-card>
+      <app-produto-card *ngFor="let percorraArray of listaProdutos" [prod]="percorraArray" (deletar)="deletarProduto($event)"></app-produto-card>
+      <!--$event GUARDA AS INFORMACOES DE QQ EVENTO EMITIDO DENTRO DO PROJETO ANGULAR-->
       <!--percorraArray E A VARIAVEL QUE VAI PERCORRER MEU ARRAY listaProdutos-->
       <!--prod E O MEU OBJETO QUE ESTA DENTRO DE PRODUTO-CARD.COMPONENT-->
     </section>
