@@ -21,7 +21,7 @@ CREATE TABLE empregado(
 CREATE TABLE dependente(
     idDependente INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
-    dataNasc DATE NOT NUll,
+    dataNasc DATE NOT NUll, -- NOT NULL NAO ACEITA QUE FIQUE VAZIO
     idResponsavel INTEGER NOT NULL, -- idEmpregado
     FOREIGN KEY(idResponsavel) REFERENCES empregado(idEmpregado) -- Torna o banco ciente do relacionamento
 );

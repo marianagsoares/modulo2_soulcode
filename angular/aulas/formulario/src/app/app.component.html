@@ -1,10 +1,10 @@
 <div class="flex">
-  <!--ngModel terá todas as info de validacao do atributo nome-->
+  <!--#inputNome  e uma var de template terá todas as info de validacao do atributo nome-->
   <mat-card>
     <mat-card-title>CADASTRO USUARIOS</mat-card-title>
     <mat-card-content>
       <!--ngForm informa o formulario uitilizará metodos de validacao do template Driven Forms-->
-      <form action="#" #userForm="ngForm" (ngSubmit)="doSomething()">
+      <form action="#" #userForm="ngForm" (ngSubmit)="enviarForm()">
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input 
@@ -14,6 +14,7 @@
           required 
           minlength="3"
           #inputNome="ngModel">
+          <!--*ngIf = "inputNome.getError('required')"-->
           <mat-error *ngIf="inputNome.errors?.['required']">campo obrigatório</mat-error>
           <mat-error *ngIf="inputNome.errors?.['minlength']">Quantidade de caracteres insuficiente</mat-error>
           <!--------------------------------------------------------------------->
@@ -26,7 +27,7 @@
           name="sobrenome" 
           required 
           minlength="5"
-          #inputSobrenome="ngModel">
+          #inputSobrenome="ngModel"> <!--InputSobrenome é variável de template-->
           <mat-error *ngIf="inputSobrenome.errors?.['required']">campo obrigatório</mat-error>
           <mat-error *ngIf="inputSobrenome.errors?.['minlength']">Quantidade de caracteres insuficiente</mat-error>
           <!--------------------------------------------------------------------->
@@ -34,7 +35,8 @@
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input type="text" matInput [(ngModel)]="dadosUsuario.email" name="email" required minlength="20"
-            #inputEmail="ngModel">
+            #inputEmail="ngModel"
+            email>
             <mat-error *ngIf="inputEmail.errors?.['required']">campo obrigatório</mat-error>
           <mat-error *ngIf="inputEmail.errors?.['minlength']">Quantidade de caracteres insuficiente</mat-error>
           <!--------------------------------------------------------------------->
@@ -42,7 +44,7 @@
         <mat-form-field appearance="outline">
           <mat-label for="senha">Senha</mat-label>
           <input 
-          type="text" 
+          type="password" 
           matInput 
           [(ngModel)]="dadosUsuario.senha" 
           name="senha" 
@@ -54,8 +56,13 @@
           <mat-error *ngIf="inputSenha.errors?.['minlength']">Quantidade de caracteres insuficiente</mat-error>
           <!--------------------------------------------------------------------->
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+        <button type="submit"
+        mat-raised-button 
+        color="primary"
+        [disabled]="userForm.invalid"
+        >Cadastrar</button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+<reactive></reactive>
