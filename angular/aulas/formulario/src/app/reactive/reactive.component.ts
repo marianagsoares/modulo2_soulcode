@@ -18,6 +18,7 @@ export class ReactiveComponent {
     nomeUsuario:new FormControl(''),
     email: new FormControl(''),
     senha: new FormControl('')
+    
   })
   
   enviar(){

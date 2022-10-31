@@ -1,18 +1,12 @@
--- Banco de dados de loja
--- Entidades: Vendedor, Produto, Endereço
--- Vendedor - Endereço (1:1); Vendedor - Produto (1:N);
-
-CREATE DATABASE operacoesDeJuncao;
-USE operacoesDeJuncao;
+CREATE DATABASE lojas;
 
 CREATE TABLE vendedor(
-    idVendedor INTEGER PRIMARY KEY AUTO_INCREMENT,
+	idVendedor INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
     sobrenome VARCHAR(30) NOT NULL,
     email VARCHAR(30) UNIQUE NOT NULL,
     dataNasc DATE NOT NULL
 );
-
 CREATE TABLE produto(
     idProduto INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
@@ -23,7 +17,6 @@ CREATE TABLE produto(
     idVendedor INTEGER NOT NULL,
     FOREIGN KEY(idVendedor) REFERENCES vendedor(idVendedor)
 );
-
 CREATE TABLE endereco(
     idEndereco INTEGER PRIMARY KEY AUTO_INCREMENT,
     cidade VARCHAR(30) NOT NULL, -- Ubajara, São Paulo, -- VARCHAR = COMPRIMENTO VARIÁVEL
@@ -41,77 +34,20 @@ INSERT INTO endereco VALUES (1,'West Cindy','PI','Harber Dam','Voluptatem quia e
 SELECT * FROM vendedor;
 SELECT * FROM produto;
 SELECT * FROM endereco;
------------------------------------------------------------------------------------ OUTROS EXEMPLOS DE SELECT - PROJECAO----------------------------------------------
-SELECT NOW() AS agora;
-SELECT 1 + 1;
-SELECT 1 +1 AS resultado; -- APELIDO AS = ALIAS
-SELECT dataNasc FROM vendedor; -- SELECIONE APENAS dataNasc DA TABELA VENDEDOR
-SELECT preco, desconto FROM produto; -- SELECIONA APENAS PRECO E DESCONTO DA TABELA PRODUTO
-SELECT nome AS  nomeProduto, preco, desconto AS descontoProduto, quantidade FROM produto;
--- ISSO NAO ALTERA O NOME DA VARIAVEL DIRETO NA TABELA, APENAS NA HORA DE MOSTRAR O RESULTADO
--- TROQUEI nome por nomeProduto e desconto por descontoProduto
 
------------------------------------------------------------------------------------ OUTROS EXEMPLOS DE SELECT - SELECAO----------------------------------------------
-SELECT idVendedor, nome, sobrenome FROM vendedor WHERE  idVendedor = 1; -- SELECIONAR AS 3 COLUNAS DO VENDEDOR COM id 1
-SELECT idVendedor, nome, sobrenome FROM vendedor WHERE idVendedor !=1; -- SELECIONAR AS 3 COLUNAS DE TODOS OS VENDEDORES MENOS O QUE TEM id 1
-SELECT * FROM vendedor WHERE idVendedor !=1 AND  idVendedor !=2; -- SELECIONAR TODAS AS COLUNAS ONDE OS VENDEDORES POSSUEM id diferente de 1 e 2
-SELECT * FROM produto WHERE preco < 300 AND preco >= 100;
-SELECT * FROM produto WHERE desconto > 0 AND descontoAte < CURRENT_DATE(); -- produto onde o desconto é maior que 0 e a data do desconto já venceu --está inferior a data de hoje
-SELECT * FROM vendedor WHERE YEAR (dataNasc) >= 2000 AND YEAR (dataNasc) <= 2010;
-SELECT * FROM vendedor WHERE YEAR (dataNasc) BETWEEN 2000 AND 2010;
-SELECT * FROM produto WHERE quantidade BETWEEN 0 AND  10;
-SELECT * FROM vendedor WHERE idVendedor IN(1, 25, 65, 88,90); -- LISTA EXATAMENTE OS VENDEDORES COM ESSES id
-SELECT COUNT(*) FROM vendedor; -- CONTANDO QUANTAS LINHAS TEMOS NA TABELA VENDEDOR
-SELECT COUNT(*) FROM endereco; -- CONTANDO QUANTAS LINHAS TEMOS NA TABELA ENDERECO
-SELECT * FROM produto WHERE  descontoAte IS NULL; -- TODAS AS LINHAS DA TABELA PRODUTO NA QUAL A DATA DE DESCONTO SEJA NULA
-SELECT * FROM vendedor WHERE email LIKE "%@gmail.com";
-SELECT * FROM vendedor WHERE email LIKE "dell%"; -- TODOS OS VENDEDORES CUJO EMAIL INICIAL COM dell%
+SELECT * FROM vendedor INNER JOIN produto ON vendedor.idVendedor = produto.idVendedor INNER JOIN endereco ON vendedor.idVendedor = endereco.idVendedor;
+SELECT * FROM vendedor INNER JOIN produto ON vendedor.idVendedor = produto.idVendedor INNER JOIN endereco ON endereco.idVendedor = endereco.idVendedor WHERE desconto > 0.0 AND descontoAte > CURRENT_DATE AND uf IN("CE");
 
------------------------------------------ TESTANDO------------------------------------------
-SELECT * FROM vendedor WHERE dataNasc LIKE "%-10-%"; -- SELECIONAR TODOS OS VENDEDORES QUE NASCERAM NO MES 10
-SELECT * FROM vendedor WHERE MONTH (dataNasc) = 10; -- OUTRA FORMA DE SELECIONAR TODOS OS VENDEDORES QUE NASCERAM NO MES 10
-SELECT COUNT(*) FROM vendedor WHERE dataNasc LIKE "%-10-%"; -- VER QUANTOS VENDEDORES NASCERAM NO MES 10
-SELECT * FROM produto ORDER BY preco DESC; -- OS PRECOS DE TODOS OS PRODUTOS FORAM LISTADOS EM ORDEM DECRESCENTE (DESCENDENTE)
-SELECT * FROM produto ORDER BY preco; -- POR PADRAO A LISTAGEM OCORRE EM ORDEM ASCENDENTE -- PRECOS DOS PRODUTOS LISTADOS EM ORDEM CRESCENTE(ASCENDENTE)
------------------------------------------ TESTANDO------------------------------------------
-SELECT * FROM vendedor ORDER BY nome;
-SELECT * FROM vendedor ORDER BY nome, sobrenome;
-SELECT * FROM vendedor ORDER BY nome, sobrenome LIMIT 5;
------------------------------------------ TESTANDO------------------------------------------
-SELECT * FROM vendedor WHERE idVendedor >=20 AND idVendedor <=30;
-SELECT * FROM vendedor WHERE idVendedor BETWEEN 20 AND 30;
------------------------------------------ TESTANDO ORDENAR DE FORMA ASCENDENTE PEGANDO PELO idProduto E PELO preco------------------------------------------
-SELECT idProduto, nome, preco, desconto, descontoAte FROM produto WHERE desconto > 0 AND descontoAte > CURRENT_DATE() ORDER BY idProduto LIMIT 10;
-SELECT idProduto, nome, preco, desconto, descontoAte FROM produto WHERE desconto > 0 AND descontoAte > CURRENT_DATE() ORDER BY preco LIMIT 10;
--------------------------------------------------------- TESTANDO -----------------------------------------------------
-SELECT idVendedor, uf FROM endereco WHERE uf IN("SP", "PE", "CE");
-SELECT idVendedor FROM endereco WHERE uf IN("RJ");
+-----------------------  QUANDO UM ATRIBUTO TEM O MESMO VALOR EM TABELAS DIFERENTES------------------------------------------
 
--------------------------------------------------------- ATIVIDADE-----------------------------------------------------
-SELECT * FROM produto WHERE desconto > 0.5; 						-- 1) QUESTAO
-SELECT * FROM produto WHERE quantidade < 5; 						-- 2) QUESTAO
-SELECT * FROM produto WHERE YEAR (descontoAte) IN (2021); 			-- 3) QUESTAO
-SELECT * FROM vendedor WHERE YEAR (dataNasc) BETWEEN 1990 AND 2001; -- 4) QUESTAO
-SELECT idVendedor FROM endereco WHERE cidade IN("Campinas"); 		-- 5) QUESTAO
-SELECT * FROM produto;
-SELECT * FROM endereco;
--------------------------------------------------------- ATIVIDADE-----------------------------------------------------
+SELECT produto.nome AS produtoNome, preco, desconto, descontoAte FROM vendedor INNER JOIN produto ON vendedor.idVendedor = produto.idVendedor;
+-- EXISTEM DOIS ATRIBUTOS COM O MESMO VALOR // NA TABELA vendedor TEM nome E NA TABELA produto TAMBEM TEM nome ENTAO PRECISO DIZER QUAIS DOS NOMES EM QUERO.
+-- QUANDO RENOMEIO EU RENOMEIO nome POIS NA TABELA PRODUTO ESSE ATRIBUTO ESTA COMO nome, RENOMEIO nome para produtoNome
 
-SELECT idVendedor, nome, sobrenome FROM vendedor WHERE nome LIKE "J%" ORDER BY nome, sobrenome LIMIT 5; -- SOMENTE SE TIVER NOMES IGUAIS ELE ORDENA POR NOME E SOBRENOME
+SELECT vendedor.idVendedor, idProduto, vendedor.nome AS nomeVendedor, produto.nome AS nomeProduto, preco, quantidade, uf, descontoAte 
+FROM vendedor 
+	INNER JOIN produto ON vendedor.idVendedor = produto.idvendedor 
+	INNER JOIN endereco ON vendedor.idVendedor = endereco.idVendedor 
+WHERE uf IN ("RS") AND descontoAte > CURRENT_DATE;
+-- NAO EXISTE NENHUM PRODUTO COM DESCONTO AINDA VALIDO CUJO O VENDEDOR DELE SEJA DO RS.
 
------------------------------------------ TESTANDO INNER JOIN SIMPLES COM 2 TABELAS------------------------------------------
-SELECT * FROM vendedor
-INNER JOIN endereco
-ON vendedor.idVendedor = endereco.idVendedor;
------------------------------------------ TESTANDO INNER JOIN COM 2 TABELAS------------------------------------------
-SELECT nome, sobrenome, uf, cidade FROM vendedor 
-INNER JOIN endereco ON vendedor.idVendedor = endereco.idVendedor 
-WHERE uf IN ("CE") AND sobrenome LIKE "G%";
------------------------------------------ TESTANDO------------------------------------------
-SELECT nome, sobrenome, uf, cidade FROM vendedor 
-INNER JOIN endereco ON vendedor.idVendedor = endereco.idVendedor 
-WHERE uf IN ("SP") AND nome LIKE "%A";
------------------------------------------ TESTANDO INNER JOIN COM 3 TABELAS------------------------------------------
-SELECT * FROM vendedor 
-INNER JOIN produto ON vendedor.idVendedor = produto.idVendedor 
-INNER JOIN endereco ON vendedor.idVendedor = endereco.idVendedor;

@@ -17,13 +17,13 @@ CREATE TABLE empregado(
     idDepartamento INTEGER NOT NULL, -- Campo para guardar a chave do departamento
     FOREIGN KEY(idDepartamento) REFERENCES departamento(idDepartamento) -- Oficializa o relacionamento entre departamento - empregado
 ); -- O BANCO ESTÁ CIENTE DESSA RELAÇÃO ENTRE AS DUAS TABELAS
-
+DROP TABLE dependente;
 CREATE TABLE dependente(
     idDependente INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(30) NOT NULL,
     dataNasc DATE NOT NUll, -- NOT NULL NAO ACEITA QUE FIQUE VAZIO
-    idResponsavel INTEGER NOT NULL, -- idEmpregado
-    FOREIGN KEY(idResponsavel) REFERENCES empregado(idEmpregado) -- Torna o banco ciente do relacionamento
+    idEmpregado INTEGER NOT NULL, -- idEmpregado
+    FOREIGN KEY(idEmpregado) REFERENCES empregado(idEmpregado) -- Torna o banco ciente do relacionamento
 );
 INSERT INTO departamento VALUES (NULL, "Recursos Humanos", 5500.0); -- SEGUE A ORDEM DAS COLUNAS
 INSERT INTO departamento VALUES (NULL, "TI", 6900.0);
@@ -36,10 +36,10 @@ INSERT INTO empregado VALUES(NULL, "André Vieira", "andrevieira@gmail.com", "19
 SELECT * FROM empregado; -- Lista TODOS os empregados
 
 -- NESSA FORMA, INDICA-SE QUAIS COLUNAS SERÃO PREENCHIDAS
-INSERT INTO dependente (nome, dataNasc, idResponsavel) VALUES ("Carlin Jr.", "2010-05-01", 1);
-INSERT INTO dependente (nome, dataNasc, idResponsavel) VALUES ("Maria Carla", "2015-03-02", 2);
-INSERT INTO dependente (nome, dataNasc, idResponsavel) VALUES ("Pedro Antonio", "2013-02-02", 3);
-INSERT INTO dependente (nome, dataNasc, idResponsavel) VALUES ("André Jr.", "2012-02-02", 1);
+INSERT INTO dependente (nome, dataNasc, idEmpregado) VALUES ("Carlin Jr.", "2010-05-01", 1);
+INSERT INTO dependente (nome, dataNasc, idEmpregado) VALUES ("Maria Carla", "2015-03-02", 2);
+INSERT INTO dependente (nome, dataNasc, idEmpregado) VALUES ("Pedro Antonio", "2013-02-02", 3);
+INSERT INTO dependente (nome, dataNasc, idEmpregado) VALUES ("André Jr.", "2012-02-02", 1);
 SELECT * FROM dependente;
 
 -- Atualizar registros

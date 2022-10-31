@@ -15,7 +15,7 @@ CREATE TABLE vendedor(
     email VARCHAR(30) UNIQUE NOT NULL,
     dataNasc DATE NOT NULL
 );
-DROP TABLE vendedor;
+
 -- CREATE TABLE PRODUTO
 CREATE TABLE produto (
 idProduto INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -34,13 +34,12 @@ INSERT INTO vendedor  VALUE  (NULL, "CARLA", "CORREIA", "carla@gmail.com", "1989
 INSERT INTO vendedor  VALUE  (NULL, "JULIA", "DIAS", "julia@gmail.com", "1980-07-07");
 
 -- CRIANDO CADA LINHA DA TABELA PRODUTO
+INSERT INTO produto (idProduto,nome, preco, quantidade, idVendedor) VALUE (NULL, "Abajur", 200.0, 70, 1); -- SEM DESCONTO
 INSERT INTO produto VALUE(NULL, "Sofá", 2225.90, 5.90, "2022-09-12", 500, 2);
 INSERT INTO produto VALUE(NULL, "Guarda-roupas", 989.99, 89.90, "2022-09-12", 70, 1);
-INSERT INTO produto VALUE(NULL, "Abajur", 200.00, 0,0, 70, 1); -- PRODUTO NAO RECEBE DESCONTO
+UPDATE produto SET quantidade = 100 WHERE idProduto = 3;
+
 
 SELECT * FROM vendedor;
 SELECT * FROM produto;
--- UPDATE produto SET quantidade = 100 WHERE idProduto = 3;
--- DESAFIO 1: Criar uma tabela endereco (uf, cidade, cep, rua, numero) que esta relacionada ao empregado (1:1)
--- DESAFIO 2: Criar uma tabela projeto (nome, prazo, orcamento, descricao). N:N (Gera uma tabela relacionamento)
 
