@@ -123,20 +123,29 @@ let obs = lerArquivos(filePaths)
 
 obs
 .pipe(
-  /* map((texto) => {
-    return texto.split(' ')[0]
+ // map((texto) => {
+   // if(isHTML.test(texto)){
+    //  return texto.split(' ')[0]
+   // }
+  //}),
+  first((testando) =>{
+   return isHTML.test(testando)
   }),
-  map((palavra) => {
-    return palavra.length
-  }) */
+  map((teste) => {
+    return teste.split(' ')[0]
+  })
+  //map((palavra) => {
+    //return palavra.length
+  //}) 
   //filter((txt) => {
     //return !isCSS.test(txt) && !isHTML.test(txt)
   //})
   //take(7)
   //first()
- first((txt) =>{
-  return isHTML.test(txt) && txt.split('')[0]
- })
+ //first((txt) =>{
+  //console.log(isHTML.test(txt))
+ // return isHTML.test(txt)
+ //})
 )
 .subscribe(
   (conteudoLido) => {
