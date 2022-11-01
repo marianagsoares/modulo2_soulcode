@@ -97,7 +97,7 @@ SELECT * FROM produto;
 SELECT * FROM endereco;
 -------------------------------------------------------- ATIVIDADE-----------------------------------------------------
 
-SELECT idVendedor, nome, sobrenome FROM vendedor WHERE nome LIKE "J%" ORDER BY nome, sobrenome LIMIT 5; -- SOMENTE SE TIVER NOMES IGUAIS ELE ORDENA POR NOME E SOBRENOME
+SELECT idVendedor, nome, sobrenome FROM vendedor WHERE nome LIKE "J%" ORDER BY nome, sobrenome LIMIT 5; -- SOMENTE SE TIVER NOMES IGUAIS ELE ORDENA POR NOME E SOBRENOMEcargo
 
 ----------------------------------------- TESTANDO INNER JOIN SIMPLES COM 2 TABELAS------------------------------------------
 SELECT * FROM vendedor
