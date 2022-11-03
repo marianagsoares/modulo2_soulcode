@@ -15,6 +15,9 @@ public class PopulateService {
         Cargo cargo1 = new Cargo(null, "Diretor Geral", "Gerencia empresa", 2000.00);
         //Vamos persistir as entidades que é que salvar no banco
         this.cargoRepository.save(cargo1);
+        Cargo cargo2 = new Cargo(null, "Executivo", "Os executivos dirigem, planejam e coordenam as atividades operacionais", 10000.00);
+        //Vamos persistir as entidades que é que salvar no banco
+        this.cargoRepository.save(cargo2);
     }
 }
 //primeiro dizemos que populateService é um serviço  @service e ele depende do Cargorepository porque é dentro dele que vai haver os métodos.

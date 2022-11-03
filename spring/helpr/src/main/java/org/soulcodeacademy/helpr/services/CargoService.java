@@ -33,7 +33,13 @@ public class CargoService {
             return cargo.get(); // Extrair o cargo de dentro do optional
         }
     }
-    // Salvar
+    // Salvar Cargo no Banco
+    public Cargo salvar(Cargo novoCargo){
+        novoCargo.setIdCargo(null);
+        Cargo cargoSalvo = this.cargoRepository.save(novoCargo);
+        return cargoSalvo;
+    }
+
     // Atualizar
     // Deletar
 }
