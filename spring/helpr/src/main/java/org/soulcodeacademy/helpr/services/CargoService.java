@@ -41,5 +41,23 @@ public class CargoService {
     }
 
     // Atualizar
+    public Cargo atualizar (Integer idCargo, Cargo novoCargoAtualizado){
+
+        Cargo cargoAtual = this.getCargo(idCargo);
+        //vai me trazer o cargo exatamente como ele é atualmente e saber se existe ou nao
+
+        cargoAtual.setNome(novoCargoAtualizado.getNome());
+        cargoAtual.setDescricao(novoCargoAtualizado.getDescricao());
+        cargoAtual.setSalario(novoCargoAtualizado.getSalario());
+
+        //Atualiza a entidade pois ela possui um id diferente de nulo
+        //o id que ele pesquisou foi encontrado e não foi nulo
+        Cargo cargoAtualizado = this.cargoRepository.save(cargoAtual);
+        return cargoAtualizado;
+    }
     // Deletar
+    public void deletar(Integer idCargo){
+       Cargo cargoADeletar = this.getCargo(idCargo);
+        this.cargoRepository.delete(cargoADeletar);
+    }
 }

@@ -47,6 +47,22 @@ public class CargoController {
         Cargo cargoSalvo = this.cargoService.salvar(cargo);
         return cargoSalvo;
     }
+
+    @PutMapping("/cargos/{idCargo}")
+    public Cargo atualizar(@PathVariable Integer idCargo, @RequestBody Cargo cargo){
+        //os dados do que eu quero atualizar X os dados que eu quero substituir
+        //System.out.println(idCargo);
+        //System.out.println(cargo.getSalario());
+        Cargo cargoAtualizado = this.cargoService.atualizar(idCargo, cargo);
+        return cargoAtualizado ;
+    }
+
+    @DeleteMapping("/cargos/{idCargo}")
+    public void deletar(@PathVariable Integer idCargo){
+        this.cargoService.deletar(idCargo);
+        //Perceba que aqui nao tem uma variavel como o que há em cargoAtualizado
+        //Porque aqui eu nao precisa retornar nada
+    }
 }
 //server.port=8081 inserir no application.properties para abrir em outra porta
 //no CargoController todos os métodos sao publicos
