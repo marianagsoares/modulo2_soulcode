@@ -1,10 +1,12 @@
+//RESPOSTA COMPLETA DA API
 export interface IFilmes {
     page: number
-    results: IFilme[]
     total_pages: number
     total_results: number
+    results: IFilme[] //8.2
 }
-
+//CADA FILME QUE ESTA DENTRO DO ARRAY RESULTS
+//8.1
 interface IFilme {
     adult: boolean,
     backdrop_path: string,
