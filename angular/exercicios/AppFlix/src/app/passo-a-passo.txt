@@ -1,0 +1,106 @@
+1 - Criação do projeto
+1.1 - Rodar comando ng new buscar-cep no terminal (Esperar instalação das dependencias ser concluida)
+1.2 - Acessar no terminal a pasta projeto criado atraves do comando: cd buscar-cep
+1.3 - Abrir pasta no vscode via terminal atraves do comando: code .
+
+2 - Criação do repositorio
+git init 
+git add -A
+git commit -m "Criação do repositorio" 
+git remote add origin https://github.com/marianagsoares/buscar-cep.git
+git push -u origin main
+
+3 - Instalar e configurar biblioteca do angular material
+3.1 - Rodar comando ng add @angular/material
+3.2 - Gerar modulo para importar componentes do material
+    3.2.1 - ng generate module material (ng generate module nome-do-modulo)
+    3.2.2 - Importar modulos do material que serão utilizados na aplicação https://gist.github.com/renato3x/97578568141c5d27275084de2e12f864
+3.3 - Importar MaterialModule no app.module.ts
+3.4 - add/commit/push das alterações
+
+4 - Gerar serviço para consumir API 
+4.1 - Rodar comando ng generate service services/via-cep
+
+5 - Estrutura HTML && TS
+5.1 - Utilizar componentes Material no HTML
+
+5.2 - Criar metodo no HTML e no TS para submeter o formulario e conecta-los atraves do (ngSubmit).
+
+5.3 Para utilizar  o FormBuilder é preciso importar o ReactiveFormsModule no app.module.ts
+
+5.4 - Sem o FormBuilder não é possivel fazer o formulario, por isso é preciso criar um construtor no app.component.ts e injetar o formBuilder: FormBuilder DENTRO DO CONSTRUTOR
+
+5.5 - Criar variavel formulario do tipo FormGroup no TS utilizando o metodo group da classe FormBuilder. group é metodo da classe FormBuilder que acessamos pelo this.formBuilder e que recebe um objeto com os inputs do nosso formulario, seu valor inicial e suas validacoes
+
+5.6 - precisamos criar o vinculo entre o input do formulario TS e o input do formulario HTML através do formControlName
+
+5.7 - No HTML precisamos criar o vinculo entre o formulario TS e o formulario HTML através do [formGroup]
+
+5.8 - Dentro do método procurar do TS, devemos buscar o valor do input do formulario, se ele existir, retornar o valor dele
+
+5.9 - Imprimir no console o que foi submetido no formulario
+
+5.10 - add/commit/push
+
+6 - Consumir API do ViaCep
+
+6.1 Dentro da classe configurar a baseUrl da API de onde virao os dados "https://www.themoviedb.org/"
+
+6.2 Para utilizar HttpClient é preciso importar o HttpClientModule no app.module.ts
+
+6.3 - Sem o HttpClient não é possivel fazer as requisições http, por isso é preciso criar um construtor no tmdb.service.ts e injetar o http: HttpClient DENTRO DO CONSTRUTOR
+
+6.4 - Criar método que vai consumir a API e retornar os dados através do método get do this.http que recebe como parametro a url completa da API. 
+
+6.5 - Criar uma interface para especificar para minha aplicação o que será retornado pelo método consumirApi e dizer o tipo do retorno no arquivo service.ts
+
+7 - Integração do service com o TS
+
+7.1 - Sem o tmdbService que esta no service não é possivel utilizar o método consumirApi dentro do TS, por isso é preciso injetar a classe tmdbService dentro do TS. DENTRO DO CONSTRUTOR
+
+7.2 -  Criar variavel do tipo IFilmes no TS e utilizar o ! para que nao precisemos inicializar e ela nao possa ser null ou undefined. Por fim, igualar ao endereco retornado pelo servico
+
+
+7.3 - Dentro do método pesquisar do TS, chamar o método consumirApi do service atraves do this.tmdbService, passando o nomeFilme como parâmetro. Alem disso, chamar a funcao subscribe que recebe uma arrow function como parametro e essa arrow function tem o filmeRetornado pelo servico como parametro
+
+this.tmdbService.consumirApi()
+this.tmdbService.consumirApi(nomeFilme)
+this.tmdbService.consumirApi(nomeFilme).subscribe()
+this.tmdbService.consumirApi(nomeFilme).subscribe(() => {})
+this.tmdbService.consumirApi(nomeFilme).subscribe((filmeRetornado) => {})
+
+7.4 - Exibir endereço no console
+
+8 - Retornar um array de objetos da API
+
+8.1 -  Quando uma das propriedades a ser chamada dentro da interface for um array de objeto, é necessário criar uma nova interface que vai armazenar as propriedades desse objeto.
+
+8.2 - É necessário dizer o tipo do array daquela propriedade, que deve ser a interface criada para armazenar o objeto daquele array.
+
+9 - Exibir o retorno da API no HTML
+
+9.1 - no HTML chame a condicional ngIf para mostrar o resultado na busca somente se a variavel que retorna o retorno da API(returnApi) apresentar um valor diferente de undefined.
+
+9.2 - no HTML chame a estrutura de repetição ngFor para mostrar o resultado do interior do array
+
+9.3 chame no HTML cada item retornado pela busca utilizando o {{}}
+
+Explicação: 
+
+<div *ngFor="let filme of returnApi.results">
+    <p>{{filme.title}}</p>
+
+    <div *ngFor="let id of filme.genre_ids">
+        <p>{{id}}</p>
+    </div>
+</div>
+
+10.3 - 
+
+Linha 97: results é uma propriedade de IFilmes (RESPOSTA COMPLETA DA API) e é um array de objetos do tipo IFilme (CADA FILME). Por isso escrevemos um ngFor para percorrer esse array e ter acesso aos dados de i (CADA FILME)
+
+Linha 98: imprimimos na tela a propriedade title de i (CADA FILME)
+
+linha 100: genre_ids é uma propriedade de IFilme (CADA FILME) e é um array de number. Por isso escrevemos um ngFor para percorrer esse array e ter acesso aos dados de c (CADA NUMBER)
+
+linha 101: imprimimos c (CADA NUMBER) na tela porque c (CADA NUMBER) é um number e por isso não tem nenhuma propriedade como IFilme (CADA FILME) tem.

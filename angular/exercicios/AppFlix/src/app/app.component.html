@@ -8,11 +8,20 @@
     </form>
     <div *ngIf="returnApi != undefined">
       <p>{{returnApi.page}}</p>
-      <div *ngFor="let precorrerLista of returnApi.results">
-        <p>{{precorrerLista.title}}</p>
-      </div>
       <p>{{returnApi.total_pages}}</p>
       <p>{{returnApi.total_results}}</p>
+      <div *ngFor="let filme of returnApi.results">
+        <!--cada filme retornado plea API-->
+        <p>{{filme.adult}}</p>
+        <p>{{filme.backdrop_path}}</p>
+        <p>{{filme.id}}</p>
+        <p>{{filme.original_language}}</p>
+        <p>{{filme.original_title}}</p>
+        <div *ngFor="let id of filme.genre_ids">
+          <p>{{id}}</p>
+          <!---id's de genero na qual cada filme se encaixa-->
+        </div>
+      </div>
     </div>
   </div>
 </main>

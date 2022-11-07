@@ -20,3 +20,14 @@ export class tmdbService {
 
 }
 //https://api.themoviedb.org/3/movie/now_playing
+//CAMINHO para a API search movie
+//https://www.themoviedb.org/
+//logar/criar conta
+//definições
+//API
+//copiar chave da API
+//Clicar em mais na barra de navegação
+//API
+//API Documentation
+//Clicar em GET search na barra de navegação lateral
+//search movie
