@@ -1,3 +1,16 @@
+//https://api.themoviedb.org/3/movie/now_playing
+//CAMINHO para a API search movie
+//https://www.themoviedb.org/
+//logar/criar conta
+//definições
+//API
+//copiar chave da API
+//Clicar em mais na barra de navegação
+//API
+//API Documentation
+//Clicar em GET search na barra de navegação lateral
+//search movie
+
 1 - Criação do projeto
 1.1 - Rodar comando ng new buscar-cep no terminal (Esperar instalação das dependencias ser concluida)
 1.2 - Acessar no terminal a pasta projeto criado atraves do comando: cd buscar-cep
