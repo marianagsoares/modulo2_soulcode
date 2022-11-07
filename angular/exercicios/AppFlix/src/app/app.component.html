@@ -1,0 +1,18 @@
+<main>
+  <div>
+    <form (ngSubmit)="pesquisar()" [formGroup]="formulario">
+      <input type="text" formControlName="inputUser">
+      <button>
+        <mat-icon>done</mat-icon>
+      </button>
+    </form>
+    <div *ngIf="returnApi != undefined">
+      <p>{{returnApi.page}}</p>
+      <div *ngFor="let precorrerLista of returnApi.results">
+        <p>{{precorrerLista.title}}</p>
+      </div>
+      <p>{{returnApi.total_pages}}</p>
+      <p>{{returnApi.total_results}}</p>
+    </div>
+  </div>
+</main>
