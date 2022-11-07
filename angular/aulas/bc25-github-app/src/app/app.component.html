@@ -1,20 +1,21 @@
 <main class="container">
   <section class="search">
-    <img src="/assets/github.svg" alt="Github">
-    <form action="#" id="search-form" [formGroup]="githubForm" (ngSubmit)="procurar()">
-      <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input type="text" matInput placeholder="Ex: frogs123" formControlName="username">
-      </mat-form-field>
-      <button mat-flat-button color="accent" matTooltip="Procurar Usuário" [disabled]="githubForm.invalid">
-        <mat-icon>search</mat-icon>
-      </button>
-    </form>
+      <img src="/assets/github.svg" alt="Github" *ngIf="gUser == undefined">
+      <!--quando ela for diferente de undefined, ou seja, a imagem do gatinho do github vai desaparecer quando o usuario foi diferente de indefinido, ou seja, quando tiver alguem pra mostrar na pesquisa. Se isso acontecer a imagem do gatinho e o formulario saem-->
+      <form action="#" id="search-form" [formGroup]="githubForm" (ngSubmit)="procurar()"  *ngIf="gUser == undefined">
+        <!--O mesmo vai acontecer com o formulario quando tiver alguem pra mostrar, o formulario desaparece-->
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput placeholder="Ex: frogs123" formControlName="username">
+        </mat-form-field>
+        <button mat-flat-button color="accent" matTooltip="Procurar Usuário" [disabled]="githubForm.invalid">
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
     <div *ngIf="gUser != undefined">
       <h1>{{gUser.name}}</h1>
       <img [src]="gUser.avatar_url">
       <p>O número de seguidores é: {{gUser.followers}}</p>
     </div>
-
   </section>
 </main>

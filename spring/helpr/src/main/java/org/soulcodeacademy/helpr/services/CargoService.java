@@ -1,10 +1,13 @@
 package org.soulcodeacademy.helpr.services;
 
 import org.soulcodeacademy.helpr.domain.Cargo;
+import org.soulcodeacademy.helpr.domain.dto.CargoDTO;
 import org.soulcodeacademy.helpr.repositories.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,14 +37,18 @@ public class CargoService {
         }
     }
     // Salvar Cargo no Banco
-    public Cargo salvar(Cargo novoCargo){
-        novoCargo.setIdCargo(null);
-        Cargo cargoSalvo = this.cargoRepository.save(novoCargo);
-        return cargoSalvo;
+
+    //public Cargo salvar(CargoDTO novoCargo){
+    //novoCargo.setIdCargo(null);
+    public Cargo salvar(@Valid CargoDTO dto){
+
+        Cargo cargoSalvo = new Cargo(null, dto.getNome(), dto.getDescricao(), dto.getSalario());
+        Cargo cargodoDTO = this.cargoRepository.save(cargoSalvo);
+        return cargodoDTO;
     }
 
     // Atualizar
-    public Cargo atualizar (Integer idCargo, Cargo novoCargoAtualizado){
+    public Cargo atualizar (Integer idCargo, CargoDTO novoCargoAtualizado){
 
         Cargo cargoAtual = this.getCargo(idCargo);
         //vai me trazer o cargo exatamente como ele é atualmente e saber se existe ou nao

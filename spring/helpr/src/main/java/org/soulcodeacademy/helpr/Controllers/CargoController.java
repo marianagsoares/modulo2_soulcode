@@ -1,10 +1,12 @@
 package org.soulcodeacademy.helpr.Controllers;
 
 import org.soulcodeacademy.helpr.domain.Cargo;
+import org.soulcodeacademy.helpr.domain.dto.CargoDTO;
 import org.soulcodeacademy.helpr.services.CargoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -37,24 +39,20 @@ public class CargoController {
         return this.cargoService.getCargo(idCargo); //idCargo deve ser igual ao que ta dentro de {idCargo}
     }
 
-   // @PostMapping("/cargos")
-   // public String salvarCargo(@RequestBody Cargo cargo){
-      //  return "Teste Post";
-   // }
 
     @PostMapping("/cargos")
-    public Cargo salvar(@RequestBody Cargo cargo){
+    public Cargo salvar( @Valid @RequestBody CargoDTO cargo){
         Cargo cargoSalvo = this.cargoService.salvar(cargo);
         return cargoSalvo;
     }
 
     @PutMapping("/cargos/{idCargo}")
-    public Cargo atualizar(@PathVariable Integer idCargo, @RequestBody Cargo cargo){
+    public Cargo atualizar(@PathVariable Integer idCargo, @RequestBody CargoDTO cargo){
         //os dados do que eu quero atualizar X os dados que eu quero substituir
         //System.out.println(idCargo);
         //System.out.println(cargo.getSalario());
         Cargo cargoAtualizado = this.cargoService.atualizar(idCargo, cargo);
-        return cargoAtualizado ;
+        return cargoAtualizado;
     }
 
     @DeleteMapping("/cargos/{idCargo}")
