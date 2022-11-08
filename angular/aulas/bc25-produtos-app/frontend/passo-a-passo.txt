@@ -1,0 +1,35 @@
+1 - Criar arquivo app-routing.module.ts
+@NgModule({
+  declarations:[],
+  imports:[],
+  providers:[]  
+})
+export class AppRouting{}
+2 - Para trabalhar com roteamento precisamos importar o modulo de roteamento RouterModule
+3 - criar uma constante Routes = [] que vai receber um array de rotas (um array de objetos)
+
+4 - path é o caminho para usar a rota
+
+5 - criar um component para indicar a rota criada acima que quem acessa-la terá acesso a rota.
+
+6 -Criar componente que será mostrado quando o caminho for acessado
+
+7 - dentro forRoot vai ser passado como parametro a constante criada chamada rotas e carrega as rotas que estao dentro do array.
+
+8- Criar a propriedade exports para exportar todas as rotas configuradas
+
+9 - No arquivo app-routing-module criar uma classe AppRouterModule e exportar
+
+9 - dentro do app.module.ts importar o AppRouterModule
+
+10- O router-outlet vai mostrar o outro componentes que quero mostrar sempre recisar reenderizar a página toda.
+
+11- Deve ir no app-routing.module.ts inserir "" no path, pois vai direcionar para a rota principal
+
+12 - Para fazer a requisição do http importar o HttpClientModule no app.module.ts
+
+13 - criar um serviço ng generate service services/produto-api e fazer a injecao de  dependencia do httpClient dentro do arquivo service.ts
+
+14- criar um método dentro do service para retornar a lista de produtos
+
+15 - 
