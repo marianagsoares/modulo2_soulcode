@@ -5,9 +5,7 @@ import org.soulcodeacademy.helpr.domain.enums.Perfil;
 import javax.persistence.*;
 
 @Entity
-@Table( name = "Funcionarios")
 public class Funcionario extends Usuario{
-    @Column
     private String foto;
 
     @ManyToOne // relacao 1:N entre Cargo e Funcionario
@@ -23,4 +21,19 @@ public class Funcionario extends Usuario{
         this.cargo = cargo;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
 }

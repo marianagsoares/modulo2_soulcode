@@ -27,9 +27,12 @@ public class PopulateService {
         this.cargoRepository.save(cargo3);
 
         Funcionario func1 = new Funcionario(null, "Renato Pereira", "renato.pereira@gmail.com", "68258098144", "12345", null, cargo1);
+        System.out.println(func1);
         this.funcionarioRepository.save(func1);
         Funcionario func2 = new Funcionario(null, "Victor Icoma", "victor.icoma@gmail.com", "51127383671", "12345", null, cargo2);
+        System.out.println(func2);
         this.funcionarioRepository.save(func2);
+
     }
 }
 //primeiro dizemos que populateService é um serviço  @service e ele depende do Cargorepository porque é dentro dele que vai haver os métodos.
