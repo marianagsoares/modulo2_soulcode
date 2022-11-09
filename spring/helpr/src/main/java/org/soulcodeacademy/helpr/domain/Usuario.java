@@ -11,7 +11,7 @@ public abstract class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    protected Integer id; //ATRIBUTO
 
-   @Column(nullable = false, unique = true, length = 50)
+   @Column(nullable = false, length = 50)
    protected String nome; //ATRIBUTO
 
    @Column(nullable = false, unique = true, length = 50)
