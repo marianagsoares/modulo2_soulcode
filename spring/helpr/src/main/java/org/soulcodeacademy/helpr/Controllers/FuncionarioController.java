@@ -2,7 +2,7 @@ package org.soulcodeacademy.helpr.Controllers;
 
 import org.soulcodeacademy.helpr.domain.Funcionario;
 import org.soulcodeacademy.helpr.domain.dto.FuncionarioDTO;
-import org.soulcodeacademy.helpr.services.FuncionarioService;
+import org.soulcodeacademy.helpr.domain.services.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +22,7 @@ public class FuncionarioController {
     public Funcionario getFuncionario(@PathVariable Integer idFuncionario){
         return this.funcionarioService.getFuncionario(idFuncionario);
     }
+
 //ADICIONAR FUNCIONARIO
     @PostMapping ("/funcionarios")
     public Funcionario salvar(@Valid @RequestBody FuncionarioDTO dto){

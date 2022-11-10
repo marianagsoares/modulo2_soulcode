@@ -5,7 +5,6 @@ import org.soulcodeacademy.helpr.domain.enums.Perfil;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "usuarios")
 public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package org.soulcodeacademy.helpr.services;
+package org.soulcodeacademy.helpr.domain.services;
 
 
 import org.soulcodeacademy.helpr.domain.Cargo;
@@ -52,12 +52,13 @@ public class FuncionarioService {
         //Busca os dados do cargo a ser alterado
         Cargo cargo = this.cargoService.getCargo(dto.getIdCargo());
 
-        //Atualiza os dados desse cargo
+        //Atualiza os dados desse funcionario
         funcionarioAtual.setNome(dto.getNome());
         funcionarioAtual.setEmail(dto.getEmail());
         funcionarioAtual.setCpf(dto.getCpf());
         funcionarioAtual.setSenha(dto.getSenha());
         funcionarioAtual.setFoto(dto.getFoto());
+        //Atualiza o cargo desse funcionario
         funcionarioAtual.setCargo(cargo);
 
         //Salvar na entidade os dados atualizados
