@@ -38,7 +38,7 @@ public class ClienteService {
 
 
     //O que eu passo no RequestBody nao cai diretamente no Cliente, cai no ClienteDTO
-    //Quando o RequestBody passa pelas validações do DTO ele vai nesse método
+    //Quando o RequestBody passa pelas validações do DTO ele vai cair nesse método
     public Cliente salvarNovoCliente(ClienteDTO dto){
         //Transferindo as informações do DTO para a entidade Cliente
         Cliente novoCliente = new Cliente(null, dto.getNome(), dto.getEmail(), dto.getCpf(), dto.getSenha(), dto.getTelefone());

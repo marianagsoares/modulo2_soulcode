@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 public class Cliente extends Usuario {
 
     //ATRIBUTO PRIVADO DA CLASSE CLIENTE
+    @Column(length = 11)
     private String telefone;
 
     // CONSTRUTOR VAZIO
