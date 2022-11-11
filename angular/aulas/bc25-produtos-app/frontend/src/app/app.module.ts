@@ -5,21 +5,26 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ListarProdutosComponent } from './pages/listar-produtos/listar-produtos.component';
-import { AppRouterModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProdutoComponent } from './pages/produto/produto.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NovoProdutoComponent } from './pages/novo-produto/novo-produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarProdutosComponent
+    ListarProdutosComponent,
+    ProdutoComponent,
+    NovoProdutoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRouterModule,
-    HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

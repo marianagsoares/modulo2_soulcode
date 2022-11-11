@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from 'src/app/models/Produto';
-import { ProdutoApiService } from 'src/app/services/produto-api.service';
+import { Produto } from 'src/app/interfaces/Produto';
+import { ProdutosApiService } from 'src/app/services/produtos-api.service';
 
 @Component({
   selector: 'app-listar-produtos',
@@ -9,14 +9,18 @@ import { ProdutoApiService } from 'src/app/services/produto-api.service';
 })
 export class ListarProdutosComponent implements OnInit {
 
+  altImg: string = 'https://igp.rs.gov.br/themes/modelo-noticias/images/outros/GD_imgSemImagem.png'
+  produtos: Produto[] = []
+
   constructor(
-    private produtoService: ProdutoApiService
+    private produtosService: ProdutosApiService
   ) { }
 
-  ngOnInit(): void {
-    this.produtoService.ListarProdutos().subscribe( (prods) => {
-      console.log(prods)
-    })
+  ngOnInit(): void { // é chamado quando o componente foi colocado na tela (renderizado)
+    this.produtosService.listarProdutos().subscribe(
+      (prods) => {
+        this.produtos = prods
+      }
+    )
   }
-
 }

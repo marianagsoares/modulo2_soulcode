@@ -48,9 +48,11 @@ public class ClienteService {
     }
 
     //ATUALIZAR CLIENTE
+
     public Cliente atualizarCliente(Integer idCliente, ClienteDTO dto){
         //VERIFICA SE O CLIENTE COM BASE NO ID PASSADO EXISTE
         Cliente clienteAtual = this.getClienteById(idCliente);
+
         //SETA PRA DENTRO DO DTO AS MUDANCAS
         clienteAtual.setNome(dto.getNome());
         clienteAtual.setEmail(dto.getEmail());

@@ -1,5 +1,7 @@
 package org.soulcodeacademy.helpr.domain.dto;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -10,7 +12,7 @@ public class UsuarioDTO {
     @Email
     @NotBlank (message = "email é obrigatório" )
     protected String email;
-
+    @CPF
     @NotBlank (message = "cpf é obrigatório")
     protected String cpf;
 

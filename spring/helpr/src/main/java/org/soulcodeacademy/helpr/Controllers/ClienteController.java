@@ -36,9 +36,9 @@ public class ClienteController {
 
     //ATUALIZAR CARGO EXISTENTE
     @PutMapping("/clientes/{idCliente}")
-    public  Cliente atualizar(@PathVariable Integer idCliente, @Valid @RequestBody ClienteDTO dto){
-         Cliente novoClienteAtualizado = this.clienteService.atualizarCliente(idCliente, dto);
-         return novoClienteAtualizado;
+    public  Cliente atualizar(@PathVariable Integer idCliente, @Valid @RequestBody ClienteDTO dto){ //CAPTURA OS VALORES
+         Cliente novoClienteAtualizado = this.clienteService.atualizarCliente(idCliente, dto); //PASSA PARA O SERVICE
+         return novoClienteAtualizado; //DADOS SAO RETORNADOS
     }
 
     //DELETE
