@@ -12,8 +12,8 @@
 //search movie
 
 1 - Criação do projeto
-1.1 - Rodar comando ng new buscar-cep no terminal (Esperar instalação das dependencias ser concluida)
-1.2 - Acessar no terminal a pasta projeto criado atraves do comando: cd buscar-cep
+1.1 - Rodar comando ng new APPFLIX no terminal (Esperar instalação das dependencias ser concluida)
+1.2 - Acessar no terminal a pasta projeto criado atraves do comando: cd APPFLIX
 1.3 - Abrir pasta no vscode via terminal atraves do comando: code .
 
 2 - Criação do repositorio
@@ -32,7 +32,7 @@ git push -u origin main
 3.4 - add/commit/push das alterações
 
 4 - Gerar serviço para consumir API 
-4.1 - Rodar comando ng generate service services/via-cep
+4.1 - Rodar comando ng generate service services/tmdb
 
 5 - Estrutura HTML && TS
 5.1 - Utilizar componentes Material no HTML
@@ -55,7 +55,7 @@ git push -u origin main
 
 5.10 - add/commit/push
 
-6 - Consumir API do ViaCep
+6 - Consumir API do TMDB
 
 6.1 Dentro da classe configurar a baseUrl da API de onde virao os dados "https://www.themoviedb.org/"
 
@@ -71,7 +71,7 @@ git push -u origin main
 
 7.1 - Sem o tmdbService que esta no service não é possivel utilizar o método consumirApi dentro do TS, por isso é preciso injetar a classe tmdbService dentro do TS. DENTRO DO CONSTRUTOR
 
-7.2 -  Criar variavel do tipo IFilmes no TS e utilizar o ! para que nao precisemos inicializar e ela nao possa ser null ou undefined. Por fim, igualar ao endereco retornado pelo servico
+7.2 -  Criar variavel do tipo IFilmes no TS e utilizar o ! para que nao precisemos inicializar e ela nao possa ser null ou undefined. Por fim, igualar ao filme retornado pelo servico
 
 
 7.3 - Dentro do método pesquisar do TS, chamar o método consumirApi do service atraves do this.tmdbService, passando o nomeFilme como parâmetro. Alem disso, chamar a funcao subscribe que recebe uma arrow function como parametro e essa arrow function tem o filmeRetornado pelo servico como parametro
@@ -82,7 +82,7 @@ this.tmdbService.consumirApi(nomeFilme).subscribe()
 this.tmdbService.consumirApi(nomeFilme).subscribe(() => {})
 this.tmdbService.consumirApi(nomeFilme).subscribe((filmeRetornado) => {})
 
-7.4 - Exibir endereço no console
+7.4 - Exibir filmeRetornado no console
 
 8 - Retornar um array de objetos da API
 
@@ -117,3 +117,4 @@ Linha 98: imprimimos na tela a propriedade title de i (CADA FILME)
 linha 100: genre_ids é uma propriedade de IFilme (CADA FILME) e é um array de number. Por isso escrevemos um ngFor para percorrer esse array e ter acesso aos dados de c (CADA NUMBER)
 
 linha 101: imprimimos c (CADA NUMBER) na tela porque c (CADA NUMBER) é um number e por isso não tem nenhuma propriedade como IFilme (CADA FILME) tem.
+

@@ -19,5 +19,7 @@ ng s -o
 - [x] Na página de listagem de produtos, fazer com que o botão de adicionar produto leve para a página de criação de produto
 - [x] Na página de listagem de produto pelo ID, fazer com que o botão de voltar leve para a página de listagem de produtos
 - [x] Na página de listagem de produto pelo ID, caso o produto não exista, mostre uma mensagem como o exemplo abaixo
+- [ ] Deletar produtos na página de listagem de produtos
+- [ ] Ao deletar o produto, mostrar a página atualizada sem o produto que foi excluído
 
 [Not Found Example](../.github/not_found.png)

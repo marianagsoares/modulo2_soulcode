@@ -6,10 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchMovieComponent } from './search-movie/search-movie.component';
+import { MovieCardsComponent } from './movie-cards/movie-cards.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchMovieComponent,
+    MovieCardsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<main>
+  <form (ngSubmit)="pesquisar()" [formGroup]="formulario" class="content-form">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"  class="logo-netflix" alt="Netflix">
+      <div>
+        <input type="text" formControlName="inputUser" class="input" placeholder="Digite o nome do filme">
+      </div>
+      <button mat-flat-button>BUSCAR</button>
+  </form>
+  <div *ngIf="returnApi != undefined"> <!--RESULTADOS + ARRAY DE FILMES-->
+
+    <p>Página {{returnApi.page}}</p>
+    <p>{{returnApi.total_results}} Resultados</p>
+    <p> Total de páginas: {{returnApi.total_pages}}</p> <!--RESULTADOS-->
+
+    <div class="align-cards"> <!--ARRAY DE FILMES-->
+      <movie-cards [movie]="filme" *ngFor="let filme of returnApi.results"></movie-cards>
+    </div>
+
+  </div>
+</main>

@@ -1,0 +1,40 @@
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:black;
+    color: white;
+}
+.content-form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.logo-netflix{
+    width: 400px;
+}
+
+.input{
+    width: 400px;
+    height: 36px;
+    display:flex;
+    justify-content: center;
+}
+
+
+button{
+    width: 400px;
+    background-color: #e50914;
+}
+/*CARDS*/
+
+.align-cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+}

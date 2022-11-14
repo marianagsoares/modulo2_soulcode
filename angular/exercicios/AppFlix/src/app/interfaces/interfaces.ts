@@ -7,7 +7,7 @@ export interface IFilmes {
 }
 //CADA FILME QUE ESTA DENTRO DO ARRAY RESULTS
 //8.1
-interface IFilme {
+export interface IFilme {
     adult: boolean,
     backdrop_path: string,
     genre_ids: number[],

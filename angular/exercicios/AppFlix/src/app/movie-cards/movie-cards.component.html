@@ -1,0 +1,14 @@
+<div class="movie-cards">
+  <mat-card class="cards">
+      <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+         <!--<mat-card-subtitle *ngFor="let id of movie.genre_ids">{{id}}</mat-card-subtitle>--> 
+      </mat-card-header>
+
+      <img mat-card-image *ngIf="movie?.poster_path" [src]="'https://image.tmdb.org/t/p/original' + movie?.poster_path" alt="foto do filme" class="poster_path">
+
+      <img mat-card-image *ngIf="movie.poster_path == undefined" src="https://amazonia.mapbiomas.org/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png" alt="foto do filme" class="poster_path">
+
+      <button class="button-assistir" mat-flat-button>ASSISTIR</button>
+    </mat-card>
+</div>
