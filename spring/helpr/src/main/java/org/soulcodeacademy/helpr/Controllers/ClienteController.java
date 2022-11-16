@@ -26,6 +26,7 @@ public class ClienteController {
     public  Cliente getCliente( @PathVariable Integer idCliente){
          return this.clienteService.getClienteById(idCliente);
     }
+
     //INSERIR NOVO CARGO
     @PostMapping("/clientes")
     //

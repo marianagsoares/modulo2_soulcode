@@ -20,23 +20,21 @@ public class ClienteService {
 
 
     //LISTAR TODOS OS CLIENTES
+
     public List<Cliente> listarTodos(){
         return this.clienteRepository.findAll();
     }
 
     //LISTAR CLIENTE BY ID
     public Cliente getClienteById(Integer idCliente){
-        Optional<Cliente> cliente = this.clienteRepository.findById(idCliente);
+        Optional<Cliente> cliente = this.clienteRepository.findById(idCliente); //BUSCA NO BANCO PARA VER SE EXISTE CHAMADO COM AQUELE ID
         if(cliente.isEmpty()){
             throw new RuntimeException("Usuario nao encontrado");
         }else{
             return cliente.get();
         }
     }
-
     //ADICIONAR CLIENTE NOVO
-
-
     //O que eu passo no RequestBody nao cai diretamente no Cliente, cai no ClienteDTO
     //Quando o RequestBody passa pelas validações do DTO ele vai cair nesse método
     public Cliente salvarNovoCliente(ClienteDTO dto){
