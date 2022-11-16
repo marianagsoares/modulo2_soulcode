@@ -1,0 +1,30 @@
+<app-header></app-header>
+<mat-card>
+    <form>
+        <mat-card-title> Formularios</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+        <label>Nome</label>
+        <input type="text" name="nome" [(ngModel)]="heroi.nome">
+        <label>Idade</label>
+        <input type="number" name="idade" [(ngModel)]="heroi.idade">
+        <label>Poder</label>
+        <input type="text" name="poder" [(ngModel)]="heroi.poder">
+    </form>
+    <h3>{{heroi | json }}</h3>
+</mat-card>
+
+
+<mat-card>
+    <form [formGroup]="formularioFrutas">
+        <mat-card-title>Formularios Reativos (Data Driven)</mat-card-title>
+        <mat-card-subtitle>Cadastro Frutas></mat-card-subtitle>
+        <label>Nome</label>
+        <input type="text" formControlName="nome">
+        <label>cor</label>
+        <input type="text" formControlName="cor">
+        <label>preco</label>
+        <input type="number" formControlName="preco">
+        <button (click)="cadastrarFrutas()">Cadastrar Frutas</button>
+    </form>
+    <h3>{{formularioFrutas.value | json }}</h3>
+</mat-card>

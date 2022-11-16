@@ -1,0 +1,48 @@
+<!--HEADER-->
+<app-header></app-header>
+
+
+<!--FORMAS DE REALIZAR DATA-BINDING-->
+
+<mat-card>
+    <mat-card-title>Data Binding</mat-card-title>
+    <!--interpolation-->
+    <h1>Bem vindo(a) {{username}}!</h1>
+
+    <!--property binding-->
+    <img [src]="img.src" [alt]="img.alt">
+
+    <!--Two way data binding-->
+    <input type="text" [(ngModel)]="username">
+
+    <button mat-icon-button color="warn" (mouseenter)="clicar()">
+        <mat-icon>favorite</mat-icon>
+    </button>
+</mat-card>
+
+
+
+<mat-card>
+    <mat-card-title>Direitvas</mat-card-title>
+    <h2 [ngStyle]="objetoStyle">Texto de exemplo - NgStyle</h2>
+    <h2 [ngClass]="{'green' : !isError, 'red': isError}">Teste de exemplo</h2>
+    <h2>Sapinho</h2>
+    <button (click)="mudarImg()">Pule</button>
+    <img src="assets/sapo-1.jpg" *ngIf="mudarSapo; else elseContainer">
+    <!--O NgTemplate nao aparece por padrão, só aparece se alguém chamar ele-->
+    <!--nesse chamo estou chamando pelo id <#elseTemplate-->
+    <ng-template #elseContainer>
+        <img src="assets/sapo-2.jpg">
+    </ng-template>
+</mat-card>
+
+<mat-card>
+    <h2>{{pipe | uppercase}}</h2>
+    <h2>{{pipe | lowercase}}</h2>
+    <h2>{{cpf | number: '11.0'}}</h2> <!--quantidade numeros apos o . (0) quantidade total de numeros(11)-->
+    <h2>{{ datePipe | date: 'dd/MM/yyyy HH:mm'}}</h2>
+    <h2>{{ objPipe.nome }} {{ objPipe.idade }}</h2>
+</mat-card>
+
+<!--FOOTER-->
+<app-footer></app-footer>
