@@ -10,3 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     margin: 0;
     box-sizing: border-box;
 }
+
+.container {
+    width: clamp(300px, 90%, 1400px);
+    margin: 0 auto;
+    padding-top: 90px;
+}

@@ -12,6 +12,8 @@ import { HomeComponent } from './views/home/home.component';
 import {  RouterModule } from '@angular/router';
 import { AngularModule } from './material/angular/angular.module';
 import { HeaderComponent } from './componentes/header/header.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { NewCollaboratorComponent } from './views/new-collaborator/new-collaborator.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HeaderComponent } from './componentes/header/header.component';
     LoginComponent,
     CadastrarUserComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent,
+    NewCollaboratorComponent
   ],
   imports: [
     BrowserModule,

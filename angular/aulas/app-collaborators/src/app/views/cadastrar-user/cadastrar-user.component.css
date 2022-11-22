@@ -55,16 +55,17 @@ main{
     justify-content: center;
 }
 
-.div-button-entrar{
+.div-button-cadastrar{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.button-entrar{
+.button-cadastrar{
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 50px;
     background-color:#243666;
@@ -84,4 +85,8 @@ main{
 .cadastrar{
     display: flex;
     justify-content: center;
+}
+
+.faca-seu-login{
+    text-decoration: none;
 }
