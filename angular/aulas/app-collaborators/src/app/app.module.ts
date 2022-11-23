@@ -14,7 +14,7 @@ import { AngularModule } from './material/angular/angular.module';
 import { HeaderComponent } from './componentes/header/header.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { NewCollaboratorComponent } from './views/new-collaborator/new-collaborator.component';
-
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { NewCollaboratorComponent } from './views/new-collaborator/new-collabora
     AngularFireModule.initializeApp(environment.firebaseConfig), //INICIALIZA O FIREBASE
     AngularFireModule,
     RouterModule,
-    AngularModule
+    AngularModule,
+    AngularFireModule
   ],
   providers: [],
   bootstrap: [AppComponent]

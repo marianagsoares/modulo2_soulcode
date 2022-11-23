@@ -7,6 +7,7 @@ import org.soulcodeacademy.helpr.repositories.CargoRepository;
 import org.soulcodeacademy.helpr.repositories.ClienteRepository;
 import org.soulcodeacademy.helpr.repositories.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,9 @@ public class PopulateService {
 
     @Autowired
     private ClienteRepository clienteRepository; //SEMPRE IMPORTAR A CLASSE CRIADA
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     public void populate(){
         Cargo cargo1 = new Cargo(null, "Diretor Geral", "Gerencia empresa", 2000.00);
@@ -33,16 +37,16 @@ public class PopulateService {
         //Vamos persistir as entidades que é que salvar no banco
         this.cargoRepository.save(cargo3);
 
-        Funcionario func1 = new Funcionario(null, "Renato Pereira", "renato.pereira@gmail.com", "68258098144", "12345", null, cargo1);
+        Funcionario func1 = new Funcionario(null, "Renato Pereira", "renato.pereira@gmail.com", "68258098144", encoder.encode("12345"), null, cargo1);
         this.funcionarioRepository.save(func1);
 
-        Funcionario func2 = new Funcionario(null, "Victor Icoma", "victor.icoma@gmail.com", "51127383671", "12345", null, cargo2);
+        Funcionario func2 = new Funcionario(null, "Victor Icoma", "victor.icoma@gmail.com", "51127383671", encoder.encode("123456"), null, cargo2);
         this.funcionarioRepository.save(func2);
 
-        Cliente cliente1 = new Cliente(null, "Jorge Matias", "jorge@gmail.com", "68258998199", "12345", "88888888888");
+        Cliente cliente1 = new Cliente(null, "Jorge Matias", "jorge@gmail.com", "68258998199", encoder.encode("12345"), "88888888888");
         this.clienteRepository.save(cliente1);
 
-        Cliente cliente2 = new Cliente(null, "Jonas Caldas", "jonas@gmail.com", "68258990099", "12345", "99999999999");
+        Cliente cliente2 = new Cliente(null, "Jonas Caldas", "jonas@gmail.com", "68258990099", encoder.encode("12345"), "99999999999");
         this.clienteRepository.save(cliente2);
 
     }

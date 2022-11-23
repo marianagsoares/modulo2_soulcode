@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Collaborator } from 'src/app/models/collaborator';
+import { CollaboratorService } from 'src/app/services/collaborator.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,12 @@ import { Collaborator } from 'src/app/models/collaborator';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private CollaboratorService: CollaboratorService
+  ) { }
   
   ngOnInit(): void {
+    this.initializeTable()
   }
 
   displayedColumns = [ "foto","nome","email","cpf","cargo","setor","excluir", "editar", "detalhes" ]
@@ -27,4 +31,9 @@ export class DashboardComponent implements OnInit {
     fotoUrl: "aaa"
   }];
 
+  private initializeTable(): void{
+    this.CollaboratorService.findAll().subscribe(collaborators =>{
+        this.dataSource = collaborators
+    })
+  }
 }

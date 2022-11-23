@@ -21,7 +21,7 @@ public abstract class Usuario {
    protected String cpf; //ATRIBUTO
 
    @JsonIgnore
-   @Column(nullable = false, length = 20)
+   @Column(nullable = false)
    protected String senha; //ATRIBUTO
 
    @Enumerated(EnumType.STRING)
