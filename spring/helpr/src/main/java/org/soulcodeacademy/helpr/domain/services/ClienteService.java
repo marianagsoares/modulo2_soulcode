@@ -1,13 +1,11 @@
 package org.soulcodeacademy.helpr.domain.services;
 
+import org.soulcodeacademy.helpr.domain.services.errors.RecursoNaoEncontradoError;
 import org.soulcodeacademy.helpr.domain.Cliente;
 import org.soulcodeacademy.helpr.domain.dto.ClienteDTO;
-import org.soulcodeacademy.helpr.domain.dto.FuncionarioDTO;
 import org.soulcodeacademy.helpr.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +27,7 @@ public class ClienteService {
     public Cliente getClienteById(Integer idCliente){
         Optional<Cliente> cliente = this.clienteRepository.findById(idCliente); //BUSCA NO BANCO PARA VER SE EXISTE CHAMADO COM AQUELE ID
         if(cliente.isEmpty()){
-            throw new RuntimeException("Usuario nao encontrado");
+            throw new RecursoNaoEncontradoError("Usuario nao encontrado");
         }else{
             return cliente.get();
         }

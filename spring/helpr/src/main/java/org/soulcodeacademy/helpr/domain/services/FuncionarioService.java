@@ -1,6 +1,7 @@
 package org.soulcodeacademy.helpr.domain.services;
 
 
+import org.soulcodeacademy.helpr.domain.services.errors.RecursoNaoEncontradoError;
 import org.soulcodeacademy.helpr.domain.Cargo;
 import org.soulcodeacademy.helpr.domain.Funcionario;
 import org.soulcodeacademy.helpr.domain.dto.FuncionarioDTO;
@@ -29,7 +30,7 @@ public class FuncionarioService {
 
         if(funcionario.isEmpty()) {
 
-            throw new RuntimeException("O funcionário não foi encontrado!"); // Causa um erro com a mensagem
+            throw new RecursoNaoEncontradoError("O funcionário não foi encontrado!"); // Causa um erro com a mensagem
         } else {
             return  funcionario.get();
         }

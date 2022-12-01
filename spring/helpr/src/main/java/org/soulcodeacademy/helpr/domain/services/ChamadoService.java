@@ -1,6 +1,7 @@
 package org.soulcodeacademy.helpr.domain.services;
 
-import ch.qos.logback.core.net.server.Client;
+import org.soulcodeacademy.helpr.domain.services.errors.ParametrosInsuficientesError;
+import org.soulcodeacademy.helpr.domain.services.errors.RecursoNaoEncontradoError;
 import org.soulcodeacademy.helpr.domain.Chamado;
 import org.soulcodeacademy.helpr.domain.Cliente;
 import org.soulcodeacademy.helpr.domain.Funcionario;
@@ -10,7 +11,6 @@ import org.soulcodeacademy.helpr.repositories.ChamadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +34,7 @@ public class ChamadoService {
     public Chamado ChamadoById(Integer idChamado){
         Optional<Chamado> chamado = this.chamadoRepository.findById(idChamado);
         if(chamado.isEmpty()){
-            throw new RuntimeException("Chamado nao encontrado");
+            throw new RecursoNaoEncontradoError("Chamado nao encontrado");
         }else{
             return chamado.get();
         }
@@ -61,7 +61,7 @@ public class ChamadoService {
         chamadoAtual.setCliente(cliente);
 
         if (dto.getIdFuncionario() == null) {
-            throw new RuntimeException("idFuncionario obrigatório");
+            throw new ParametrosInsuficientesError("idFuncionario obrigatório");
         } else {
             Funcionario funcionario = this.funcionarioService.getFuncionario(dto.getIdFuncionario());
 

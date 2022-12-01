@@ -1,7 +1,7 @@
 package org.soulcodeacademy.helpr.domain.dto;
 
 public class FuncionarioDTO extends UsuarioDTO{
-    public String getTelefone;
+
     private Integer idCargo;
 
     private String foto;
